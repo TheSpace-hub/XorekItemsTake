@@ -13,6 +13,9 @@ import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Обработчик поднятия игроком предмета.
+ */
 public class MainExecutor implements Listener {
 
     private final Plugin plugin;
