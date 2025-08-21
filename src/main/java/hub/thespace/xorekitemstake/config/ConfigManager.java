@@ -24,6 +24,13 @@ public class ConfigManager {
         config = plugin.getConfig();
     }
 
+    /**
+     * Безопасное получение строки из конфга.
+     *
+     * @param path         Пусть до поля.
+     * @param defaultValue Значение по умолчанию, которое будет передано в случае ошибки.
+     * @return Строка.
+     */
     public String getString(String path, String defaultValue) {
         try {
             String value = config.getString(path);
