@@ -55,6 +55,13 @@ public class Config {
         return configManager.getString("mode.flight", "");
     }
 
-
+    /**
+     * Получение поля mode.god.
+     *
+     * @return Поле mode.god.
+     */
+    public String getGodPlaceholder() {
+        return configManager.getString("mode.god", "");
+    }
 
 }
