@@ -27,4 +27,16 @@ public enum Mode {
             return Mode.FLIGHT;
         return null;
     }
+
+    /**
+     * Возвращает запрещающее сообщение.
+     *
+     * @param mode Запрещающий режим игры.
+     * @return Сообщение, преобразованное с поддержкой hex.
+     */
+    @NotNull
+    public static String getRejectionMessage(@NotNull Mode mode) {
+        return "";
+    }
+
 }
