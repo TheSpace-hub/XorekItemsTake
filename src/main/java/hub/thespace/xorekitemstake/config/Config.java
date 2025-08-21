@@ -24,7 +24,7 @@ public class Config {
      *
      * @return Основное сообщение.
      */
-    public String getMessages() {
+    public String getMessage() {
         return configManager.getString("message", "");
     }
 
