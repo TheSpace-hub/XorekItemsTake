@@ -64,4 +64,13 @@ public class Config {
         return configManager.getString("mode.god", "");
     }
 
+    /**
+     * Получение поля mode.vanish.
+     *
+     * @return Поле mode.vanish.
+     */
+    public String getVanishPlaceholder() {
+        return configManager.getString("mode.vanish", "");
+    }
+
 }
