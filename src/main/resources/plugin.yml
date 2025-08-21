@@ -1,0 +1,4 @@
+name: XorekItemsTake
+version: '${version}'
+main: hub.thespace.xorekitemstake.XorekItemsTake
+api-version: '1.16'
