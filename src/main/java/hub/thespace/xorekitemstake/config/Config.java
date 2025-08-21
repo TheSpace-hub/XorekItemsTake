@@ -10,4 +10,13 @@ public class Config {
         this.configManager = configManager;
     }
 
+    /**
+     * Получения префикса.
+     *
+     * @return Префикс для сообщения.
+     */
+    public String getPrefix() {
+        return configManager.getString("prefix", "");
+    }
+
 }
