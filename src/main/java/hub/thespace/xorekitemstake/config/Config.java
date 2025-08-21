@@ -28,4 +28,13 @@ public class Config {
         return configManager.getString("message", "");
     }
 
+    /**
+     * Получения сообщения в босс-баре.
+     *
+     * @return Сообщения для босс-бара.
+     */
+    public String getBossBar() {
+        return configManager.getString("bossbar", "");
+    }
+
 }
