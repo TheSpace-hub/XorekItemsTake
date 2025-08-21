@@ -3,7 +3,7 @@
  */
 package hub.thespace.xorekitemstake.executor;
 
-import hub.thespace.xorekitemstake.Mode;
+import hub.thespace.xorekitemstake.RejectionMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -43,7 +43,7 @@ public class MainExecutor implements Listener {
      * @return Может ли игрок поднять предмет.
      */
     private boolean canPickup(@NotNull Player player) {
-        Mode mode = Mode.fromPlayer(player);
+        RejectionMode mode = RejectionMode.fromPlayer(player);
         return mode != null;
     }
 
@@ -53,7 +53,7 @@ public class MainExecutor implements Listener {
      * @param player Игрок, который не может поднять предмет.
      */
     private void sendRejectionMessage(Player player) {
-        Mode mode = Mode.fromPlayer(player);
+        RejectionMode mode = RejectionMode.fromPlayer(player);
         if (mode == null)
             return;
 
