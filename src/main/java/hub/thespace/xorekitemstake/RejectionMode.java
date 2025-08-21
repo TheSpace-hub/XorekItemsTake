@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Режим игрока, запрещающий брать ему предметы.
  */
-public enum Mode {
+public enum RejectionMode {
     CREATIVE,
     FLIGHT,
     GOD,
@@ -20,11 +20,11 @@ public enum Mode {
      * @return Режим, запрещающий игроку брать предмет или null.
      */
     @Nullable
-    public static Mode fromPlayer(@NotNull Player player) {
+    public static RejectionMode fromPlayer(@NotNull Player player) {
         if (player.getGameMode() == GameMode.CREATIVE)
-            return Mode.CREATIVE;
+            return RejectionMode.CREATIVE;
         else if (player.isFlying())
-            return Mode.FLIGHT;
+            return RejectionMode.FLIGHT;
         return null;
     }
 
@@ -35,7 +35,7 @@ public enum Mode {
      * @return Сообщение, преобразованное с поддержкой hex.
      */
     @NotNull
-    public static String getRejectionMessage(@NotNull Mode mode) {
+    public static String getRejectionMessage(@NotNull RejectionMode mode) {
         return "";
     }
 
