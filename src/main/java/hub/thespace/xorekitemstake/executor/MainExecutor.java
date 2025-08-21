@@ -67,7 +67,8 @@ public class MainExecutor implements Listener {
             case VANISH -> config.getVanishPlaceholder();
         };
 
-        player.sendMessage(config.getMessage());
+        player.sendMessage(config.getMessage().replace("{mode}", placeholder)
+                .replaceAll("#([a-fA-F0-9]{6})", "§x§$1"));
 
     }
 }
