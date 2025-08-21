@@ -37,4 +37,13 @@ public class Config {
         return configManager.getString("bossbar", "");
     }
 
+    /**
+     * Получение поля mode.creative.
+     *
+     * @return Поле mode.creative.
+     */
+    public String getCreativePlaceholder() {
+        return configManager.getString("mode.creative", "");
+    }
+
 }
