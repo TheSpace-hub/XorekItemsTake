@@ -4,6 +4,8 @@
 package hub.thespace.xorekitemstake.executor;
 
 import hub.thespace.xorekitemstake.RejectionMode;
+import hub.thespace.xorekitemstake.config.Config;
+import hub.thespace.xorekitemstake.config.ConfigManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,9 +16,11 @@ import org.jetbrains.annotations.NotNull;
 public class MainExecutor implements Listener {
 
     private final Plugin plugin;
+    private final Config config;
 
     public MainExecutor(Plugin plugin) {
         this.plugin = plugin;
+        config = new Config(new ConfigManager(plugin));
     }
 
     /**
@@ -54,8 +58,14 @@ public class MainExecutor implements Listener {
      */
     private void sendRejectionMessage(Player player) {
         RejectionMode mode = RejectionMode.fromPlayer(player);
-        if (mode == null)
-            return;
+        assert mode != null;
+
+        String placeholder = switch (mode) {
+            case CREATIVE -> config.getCreativePlaceholder();
+            case FLIGHT -> config.getFlightPlaceholder();
+            case GOD -> config.getGodPlaceholder();
+            case VANISH -> config.getVanishPlaceholder();
+        };
 
     }
 }
