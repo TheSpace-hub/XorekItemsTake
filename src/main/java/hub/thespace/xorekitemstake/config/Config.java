@@ -1,5 +1,11 @@
 package hub.thespace.xorekitemstake.config;
 
+import org.bukkit.ChatColor;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Получение данных из конфига.
  */
@@ -71,6 +77,28 @@ public class Config {
      */
     public String getVanishPlaceholder() {
         return configManager.getString("mode.vanish", "");
+    }
+
+    /**
+     * Преобразование сообщения, содержащее hex.
+     *
+     * @param message Исходное сообщение.
+     * @return Отформатированное сообщение.
+     */
+    @NotNull
+    public static String hex(String message) {
+        Pattern pattern = Pattern.compile("#([a-fA-F0-9]{6})");
+        Matcher matcher = pattern.matcher(message);
+        StringBuffer result = new StringBuffer();
+
+        while (matcher.find()) {
+            String hexCode = matcher.group(1); // RRGGBB без #
+            String minecraftHex = "§x§" + String.join("§", hexCode.split(""));
+            matcher.appendReplacement(result, minecraftHex);
+        }
+
+        matcher.appendTail(result);
+        return result.toString().replace("&", "");
     }
 
 }
