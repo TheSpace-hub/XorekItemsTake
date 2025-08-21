@@ -6,7 +6,6 @@ package hub.thespace.xorekitemstake.executor;
 import hub.thespace.xorekitemstake.RejectionMode;
 import hub.thespace.xorekitemstake.config.Config;
 import hub.thespace.xorekitemstake.config.ConfigManager;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
