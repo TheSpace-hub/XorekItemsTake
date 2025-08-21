@@ -46,4 +46,15 @@ public class Config {
         return configManager.getString("mode.creative", "");
     }
 
+    /**
+     * Получение поля mode.flight.
+     *
+     * @return Поле mode.flight.
+     */
+    public String getFlightPlaceholder() {
+        return configManager.getString("mode.flight", "");
+    }
+
+
+
 }
