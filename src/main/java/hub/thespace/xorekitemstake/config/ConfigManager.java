@@ -13,6 +13,7 @@ public class ConfigManager {
 
     public ConfigManager(Plugin plugin) {
         this.plugin = plugin;
+        loadConfig();
     }
 
     /**
