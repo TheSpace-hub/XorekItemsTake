@@ -6,6 +6,7 @@ package hub.thespace.xorekitemstake.executor;
 import hub.thespace.xorekitemstake.RejectionMode;
 import hub.thespace.xorekitemstake.config.Config;
 import hub.thespace.xorekitemstake.config.ConfigManager;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -67,8 +68,9 @@ public class MainExecutor implements Listener {
             case VANISH -> config.getVanishPlaceholder();
         };
 
-        player.sendMessage(config.getMessage().replace("{mode}", placeholder)
-                .replaceAll("#([a-fA-F0-9]{6})", "§x§$1"));
-
+        player.sendMessage(Config.hex(config.getMessage()
+                .replace("{prefix}", config.getPrefix())
+                .replace("{mode}", placeholder)
+        ));
     }
 }
