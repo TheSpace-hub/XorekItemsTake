@@ -19,4 +19,13 @@ public class Config {
         return configManager.getString("prefix", "");
     }
 
+    /**
+     * Получение основного сообщения.
+     *
+     * @return Основное сообщение.
+     */
+    public String getMessages() {
+        return configManager.getString("message", "");
+    }
+
 }
