@@ -67,5 +67,7 @@ public class MainExecutor implements Listener {
             case VANISH -> config.getVanishPlaceholder();
         };
 
+        player.sendMessage(config.getMessage());
+
     }
 }
