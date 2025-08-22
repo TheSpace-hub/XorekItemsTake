@@ -6,6 +6,7 @@ package hub.thespace.xorekitemstake.executor;
 import hub.thespace.xorekitemstake.RejectionMode;
 import hub.thespace.xorekitemstake.config.Config;
 import hub.thespace.xorekitemstake.config.ConfigManager;
+import net.ess3.api.IEssentials;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -25,11 +26,13 @@ import java.util.Map;
 public class MainExecutor implements Listener, Runnable {
 
     private final Plugin plugin;
+    private final IEssentials essentials;
     private final Config config;
     private final Map<Player, Integer> notifiedPlayers = new HashMap<>();
 
     public MainExecutor(Plugin plugin) {
         this.plugin = plugin;
+        essentials = (IEssentials) Bukkit.getPluginManager().getPlugin("Essentials");
         config = new Config(new ConfigManager(plugin));
     }
 
@@ -59,7 +62,7 @@ public class MainExecutor implements Listener, Runnable {
      * @return Может ли игрок поднять предмет.
      */
     private boolean canPickup(@NotNull Player player) {
-        RejectionMode mode = RejectionMode.fromPlayer(player);
+        RejectionMode mode = RejectionMode.fromPlayer(essentials, player);
         return mode == null;
     }
 
@@ -72,7 +75,7 @@ public class MainExecutor implements Listener, Runnable {
         if (notifiedPlayers.containsKey(player))
             return;
 
-        RejectionMode mode = RejectionMode.fromPlayer(player);
+        RejectionMode mode = RejectionMode.fromPlayer(essentials, player);
         assert mode != null;
 
         String placeholder = switch (mode) {

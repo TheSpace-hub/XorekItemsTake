@@ -1,5 +1,7 @@
 package hub.thespace.xorekitemstake;
 
+import com.earth2me.essentials.User;
+import net.ess3.api.IEssentials;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -20,23 +22,17 @@ public enum RejectionMode {
      * @return Режим, запрещающий игроку брать предмет или null.
      */
     @Nullable
-    public static RejectionMode fromPlayer(@NotNull Player player) {
+    public static RejectionMode fromPlayer(@NotNull IEssentials essentials, @NotNull Player player) {
+        User user = essentials.getUser(player);
         if (player.getGameMode() == GameMode.CREATIVE)
             return RejectionMode.CREATIVE;
         else if (player.isFlying())
             return RejectionMode.FLIGHT;
+        else if (user.isGodModeEnabled())
+            return RejectionMode.GOD;
+        else if (user.isVanished())
+            return RejectionMode.VANISH;
         return null;
-    }
-
-    /**
-     * Возвращает запрещающее сообщение.
-     *
-     * @param mode Запрещающий режим игры.
-     * @return Сообщение, преобразованное с поддержкой hex.
-     */
-    @NotNull
-    public static String getRejectionMessage(@NotNull RejectionMode mode) {
-        return "";
     }
 
 }
