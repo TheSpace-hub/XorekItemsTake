@@ -1,5 +1,5 @@
 name: XorekItemsTake
 version: '${version}'
 main: hub.thespace.xorekitemstake.XorekItemsTake
-depend: [ EssentialsX ]
+depend: [ Essentials ]
 api-version: '1.16'
