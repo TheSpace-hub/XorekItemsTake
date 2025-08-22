@@ -1,6 +1,5 @@
 package hub.thespace.xorekitemstake.config;
 
-import org.bukkit.ChatColor;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.regex.Matcher;
@@ -92,7 +91,7 @@ public class Config {
         StringBuffer result = new StringBuffer();
 
         while (matcher.find()) {
-            String hexCode = matcher.group(1); // RRGGBB без #
+            String hexCode = matcher.group(1);
             String minecraftHex = "§x§" + String.join("§", hexCode.split(""));
             matcher.appendReplacement(result, minecraftHex);
         }
