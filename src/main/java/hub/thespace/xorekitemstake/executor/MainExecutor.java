@@ -111,10 +111,10 @@ public class MainExecutor implements Listener, Runnable {
     @Override
     public void run() {
         List<Player> noLongerNotifiedPlayers = new ArrayList<>();
-        for (Player player : notifiedPlayers.keySet()) {
+        for (Player player : notifiedPlayers.keySet())
             if (notifiedPlayers.get(player) < Bukkit.getServer().getCurrentTick() - 20)
                 noLongerNotifiedPlayers.add(player);
-        }
+
         for (Player player : noLongerNotifiedPlayers) {
             notifiedPlayers.remove(player);
             bossBar.removePlayer(player);
