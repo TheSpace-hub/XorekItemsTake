@@ -3,7 +3,6 @@ plugins {
 }
 
 group = 'hub.thespace'
-version = '1.0'
 
 repositories {
     mavenCentral()
