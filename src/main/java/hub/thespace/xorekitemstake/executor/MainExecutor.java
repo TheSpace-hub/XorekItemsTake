@@ -8,6 +8,9 @@ import hub.thespace.xorekitemstake.config.Config;
 import hub.thespace.xorekitemstake.config.ConfigManager;
 import net.ess3.api.IEssentials;
 import org.bukkit.Bukkit;
+import org.bukkit.boss.BarColor;
+import org.bukkit.boss.BarStyle;
+import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -28,12 +31,21 @@ public class MainExecutor implements Listener, Runnable {
     private final Plugin plugin;
     private final IEssentials essentials;
     private final Config config;
+
     private final Map<Player, Integer> notifiedPlayers = new HashMap<>();
+
+    private final BossBar bossBar;
 
     public MainExecutor(Plugin plugin) {
         this.plugin = plugin;
         essentials = (IEssentials) Bukkit.getPluginManager().getPlugin("Essentials");
         config = new Config(new ConfigManager(plugin));
+
+        bossBar = Bukkit.createBossBar(
+                config.getBossBar(),
+                BarColor.RED,
+                BarStyle.SOLID
+        );
     }
 
     /**
@@ -89,6 +101,8 @@ public class MainExecutor implements Listener, Runnable {
                 .replace("{prefix}", config.getPrefix())
                 .replace("{mode}", placeholder)
         ));
+
+        bossBar.addPlayer(player);
     }
 
     /**
@@ -103,6 +117,7 @@ public class MainExecutor implements Listener, Runnable {
         }
         for (Player player : noLongerNotifiedPlayers) {
             notifiedPlayers.remove(player);
+            bossBar.removePlayer(player);
         }
     }
 }
