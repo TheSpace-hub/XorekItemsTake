@@ -1,6 +1,3 @@
-/**
- * Обрабатывает событие поднятие предмета игроком и решает, что стоит предпринять.
- */
 package hub.thespace.xorekitemstake.executor;
 
 import hub.thespace.xorekitemstake.RejectionMode;
@@ -24,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Обработчик поднятия игроком предмета.
+ * Обрабатывает событие поднятие предмета игроком и решает, что стоит предпринять.
  */
 public class MainExecutor implements Listener, Runnable {
 
